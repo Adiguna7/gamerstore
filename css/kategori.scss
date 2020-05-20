@@ -34,14 +34,27 @@ p{
     letter-spacing: 1.5px;
 }
 
+.c-nav{
+    background-color: $merah-tua;
+    .t3--freshscript{
+        font-size: 1.5em;
+        font-family: 'fresh-script';
+        color: $putih;
+    }
+    .t4--argo{
+        font-family: 'argo';
+        color: $putih;
+    }
+}
+
 
 .kotak{
     width: 200px;
-    height: 313px;
+    height: 278px;
     // background-color: $merah-muda;
     border: 2px solid $merah-muda;
     background-color: white;
-    border-radius: 15px;
+    border-radius: 15px 15px 0 0;
     display: flex;
     justify-content: space-between;
     align-items: center;        
@@ -49,9 +62,32 @@ p{
     transition: all .2s ease-in-out;
 }
 
-.kotak:hover{
-    transform: translateY(-4px);
+.beli-detail{
+    width: 200px;
+    height: 35px;
+    background-color: $merah-muda;
+    padding: 5px;
+    color: $putih;
+    font-family: 'argo';
+    border-radius: 0 0 15px 15px;
 }
+
+.pointer{
+    cursor: pointer;
+}    
+
+.transition--up{
+    transition: all .2s ease-in-out;
+}
+
+.transition--up:hover{
+    transform: translateY(-2px);
+}
+
+.bg--putih:hover{
+    color: $birudongker;
+}
+
 
 
 #barang{
@@ -103,7 +139,7 @@ p{
                     color: $putih;
                     margin-bottom: 0;
                     margin-left: 20px;
-                    cursor: pointer;
+                    // cursor: pointer;
                 }                
             }            
         }
@@ -134,7 +170,7 @@ p{
         #wrapper-col-2{
             padding-top: 15px;                        
             .kotak{
-                cursor: pointer;
+                // cursor: pointer;
                 margin-right: 15px;
                 p{
                     margin-top: 15px;

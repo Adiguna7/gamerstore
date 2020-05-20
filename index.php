@@ -1,23 +1,5 @@
 <?php
-$mysqli = new mysqli('localhost', 'root', '123', 'basisdata2020v2');
-
-if(!$mysqli){
-    echo "error";
-}
-$category = NULL;
-$sql = 0;
-if(isset($_GET['search'])){
-    $category = $_GET['category'];
-    if($category == 'keyboard'){        
-        $sql = "SELECT * FROM item WHERE itemCategory = '$category'";
-    }
-    elseif($category == 'mouse'){
-        $sql = "SELECT * FROM item WHERE itemCategory = '$category'";
-    }
-    elseif($category == 'headset'){
-        $sql = "SELECT * FROM item WHERE itemCategory = '$category'";
-    }
-}
+include 'connect.php';
 ?>
 
 <!DOCTYPE html>
@@ -28,92 +10,171 @@ if(isset($_GET['search'])){
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="shorcut icon" href="image/headset.svg">
-    <title>Selamat Datang | PahlevyStore</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="shorcut icon" href="image/index/logoicon.png">
+    <title>Selamat Datang | GamerStore</title>
 </head>
 <body>
-    <section id="section-1">
+    <nav class="navbar navbar-expand-sm px-5 c-nav">
+        <p class="navbar-brand t3--freshscript pointer" onclick="window.location.href = 'index.html'">GamerStore</p>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"><i style="color: white;" class="fas fa-bars"></i></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">                
+                <li class="nav-item mr-3">
+                    <a href="kategori2.php" class="nav-link t4--argo text-center text-white">Kategori</a>                                
+                </li>
+                <?php
+                if(!isset($_SESSION['status'])){
+                ?>
+                <li class="nav-item mr-3 text-center">
+                    <a href="register.php" class="t4--argo nav-link text-white">Daftar</a>
+                </li>
+                <li class="nav-item mr-3 text-center">
+                    <a href="login.php" class="t4--argo nav-link text-white">Login</a>
+                </li>
+                <?php
+                }
+                else{
+                ?>
+                <li class="nav-item mr-3 text-center">
+                    <a href="user-dashboard.php?tprocess=keranjang" class="t4--argo nav-link text-white">Dashboard User</a>
+                </li>
+                <li class="nav-item mr-3 text-center">
+                    <a href="logout.php" class="t4--argo nav-link text-white">Logout</a>
+                </li>
+                <?php
+                }
+                ?>
+            </ul>
+        </div>        
+    </nav>
+
+    <div class="c-section1">
         <div class="container">
-            <div class="row" id="wrapper-row-1">
-                <div class="col-lg-6 col-md-6 col-sm-6 col-6" id="wrapper-col-1">
-                    <p>PahlevyStore</p>
+            <div class="row">
+                <div class="col-lg-6">
+                    <img src="image/index/asset1.png" class="img-fluid" alt="" srcset="">            
                 </div>
-                <div class="col-lg-6 col-md-6 col-sm-6 col-6" id="wrapper-col-1">
-                    <p>Login</p>                    
-                    <p>Product</p>                    
-                    <p>Home</p>
+                <div class="col-lg-6 d-flex justify-content-center align-items-center flex-column">
+                    <p class="t--argo h2">Gamers</p>
+                    <p class="t--freshscript h3">dont die</p>
+                    <p class="t--argo h2">They Respawn</p>
+                </div>
+            </div>
+        </div>    
+    </div>
+
+    <div class="c-section2">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 d-flex align-items-center flex-column">
+                    <div class="t--line t--argo h3">
+                        Why Choose Us
+                    </div>
+                    <div class="t--argo mt-4 h2">
+                        Simply From Gamer
+                    </div>
+                    <div class="t--freshscript h3">
+                        to
+                    </div>
+                    <div class="t--argo h2">
+                        Gamer
+                    </div>
+                </div>
+                <div class="col-lg-6 d-flex justify-content-center">
+                    <img src="image/index/asset2.png" class="img-fluid o__image--medium o__image--shadow" alt="" srcset="">
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <section id="section-2">
+    <div class="c-section3">
         <div class="container">
-            <div class="row" id="wrapper-row-1">
-                <div class="col-md-12" id="wrapper-col-1">
+            <div class="row">
+                <div class="col-4 d-flex align-items-center flex-column">
+                    <img src="image/index/asset3.png" class="o__image--icon img-fluid" alt="" srcset="">
+                </div>
+                <div class="col-4 d-flex align-items-center flex-column">
+                    <img src="image/index/asset4.png" class="o__image--icon img-fluid" alt="" srcset="">
+                </div>
+                <div class="col-4 d-flex align-items-center flex-column">
+                    <img src="image/index/asset5.png" class="o__image--icon img-fluid" alt="" srcset="">
+                </div>                                
+            </div>
+            <div class="row">
+                <div class="col-4 d-flex align-items-center flex-column">
+                    <p class="t--line mt-4 t--argo h5">
+                        Find
+                    </p>
+                </div>
+                <div class="col-4 d-flex align-items-center flex-column">
+                    <p class="t--line mt-4 t--argo h5">
+                        Buy
+                    </p>
+                </div>
+                <div class="col-4 d-flex align-items-center flex-column">
+                    <p class="t--line mt-4 t--argo h5">
+                        Play Together
+                    </p>
+                </div>                
+            </div>
+        </div>
+    </div>
 
-                    <div class="row" id="wrapper-row-2">
-                        <div class="col-md-6" id="wrapper-col-2">
-                            <form action="" method="get">
-                                <select name="category" id="category">                                    
-                                    <option value="">------</option>
-                                    <option value="keyboard">Keyboard</option>
-                                    <option value="mouse">Mouse</option>
-                                    <option value="headset">Headset</option>                                    
-                                </select>
-                                <input type="submit" name="search" value="Search" id="search">
-                            </form>
-                        </div>
+    <div class="c-section4">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 d-flex justify-content-center">
+                    <p class="t--line t--argo h4">
+                        Choose Category
+                    </p>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-lg-4 d-flex justify-content-center">
+                    <div class="o__card">
+                        <img src="image/index/asset6.png" class="o__image--category img-fluid" alt="" srcset="">                        
+                        <p class="o__button t--montserrat" onclick="window.location.href='kategori2.php?category=keyboard&search=Search'">
+                            Keyboard
+                        </p>
+                    </div>                
+                </div>
+                <div class="col-lg-4 d-flex justify-content-center">
+                    <div class="o__card">                        
+                        <img src="image/index/asset7.png" class="o__image--category img-fluid" alt="" srcset="">                                                
+                        <p class="o__button t--montserrat" onclick="window.location.href='kategori2.php?category=mouse&search=Search'">
+                            Mouse
+                        </p>   
                     </div>
-
-                    <div class="row" id="wrapper-row-2">
-                        <div class="col-md-6" id="wrapper-col-1">
-                            <p>Menampilkan kategori <?php echo $category?></p>
-                        </div>
+                </div>
+                <div class="col-lg-4 d-flex justify-content-center">
+                    <div class="o__card">                        
+                        <img src="image/index/asset8.png" class="o__image--category img-fluid" alt="" srcset="">                                                                        
+                        <p class="o__button t--montserrat" onclick="window.location.href='kategori2.php?category=headset&search=Search'">
+                            Headset
+                        </p>                                                
                     </div>
-
-                    <div class="row" id="wrapper-row-2">
-                        <?php
-                        if($data = $mysqli->query($sql)){
-
-                            
-                        while($d = $data->fetch_assoc()){
-                                                                
-                        ?>
-                        <div class="col-lg-2.5" id="wrapper-col-2">                            
-                            <div class="kotak" onclick="window.location">
-                                <img src="image/<?php echo $d['itemImage']?>" alt="" srcset="" id="barang">
-                                <div>
-                                    <p><?php echo $d['itemName']?></p>
-                                    <p>Rp. <?php echo $d['itemPrice']?></p>                                                   
-                                </div>                                
-                            </div>                            
-                        </div>
-                        <?php                            
-                        }
-                        }
-                        ?>
-                    </div>
-
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <section id="section-3">
+    <div class="c-section5 c__footer">
         <div class="container-fluid">
-            <div class="row" id="wrapper-row-1">
-                <div class="col-lg-4" id="wrapper-col-1">
-                    <p>PahlevyStore</p>
-                    <p>Jalan Simo Pomahan 3 no. 1</p>
-                    <p>0859 6117 5115</p>
-                    <p>pahlevystore@gmail.com</p>
-                    <p>Buka setiap hari kecuali pas tutup</p>
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="t--freshscript h2">GamerStore</div>
+                    <div class="t--montserrat mt-5 t--small">Jalan Simo Pomahan 3 no. 1</div>
+                    <div class="t--montserrat mt-3 t--small">0859 6117 5115</div>
+                    <div class="t--montserrat mt-3 t--small">pahlevystore@gmail.com</div>
+                    <div class="t--montserrat mt-3 t--small">Buka setiap hari kecuali pas tutup</div>
                 </div>
             </div>
         </div>
-    </section>
-
+    </div>
+    
 </body>
 </html>

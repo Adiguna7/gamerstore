@@ -1,0 +1,78 @@
+// SETUP WARNA
+$birudongker: #042a38;
+$putih: #f7f5e8;
+$merah-muda: #b32442;
+$merah-tua: #760933;
+
+// SETUP FONT
+@font-face{
+    font-family: 'fresh-script';
+    src: url("../font/Fresh\ Script.otf");
+}
+@font-face{
+    font-family: 'argo';
+    src: url("../font/Argo\ Flats.ttf");
+}
+@font-face{
+    font-family: 'montserrat';
+    src: url("../font/Montserrat-Regular.ttf");
+}
+
+body, html{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    background-color: $putih;
+}
+
+.c{
+    &-idetail-section1{
+        margin-top: 75px;
+    }
+}
+
+.l{
+    &-itemimage{
+        height: 450px;
+        width: 450px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 25px;
+        background-color: white;
+    }
+    &-itemdetail{
+        display: flex;        
+        flex-direction: column;
+        padding: 20px 0 20px 0;        
+        &--exclusive{
+            background-color: white;
+        }
+    }
+    &-itemdescription{
+        min-height: 200px;
+        background-color: white;
+    }
+}
+
+.t{
+    &--merahmuda{
+        color: $merah-muda;
+    }
+}
+
+.o{
+    &__buttonitemdetail{
+        background-color: $merah-muda;
+        cursor: pointer;
+        color: white;
+        min-width: 150px;
+        min-height: 45px;
+        border-radius: 7px;
+        font-size: 0.9em;    
+    }
+    &__buttonitemdetail:hover{
+        background-color: $merah-tua;
+    }
+}

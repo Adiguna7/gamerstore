@@ -1,0 +1,96 @@
+// SETUP WARNA
+$birudongker: #042a38;
+$putih: #f7f5e8;
+$merah-muda: #b32442;
+$merah-tua: #760933;
+// SETUP FONT
+@font-face{
+    font-family: 'fresh-script';
+    src: url("../font/Fresh\ Script.otf");
+}
+@font-face{
+    font-family: 'argo';
+    src: url("../font/Argo\ Flats.ttf");
+}
+@font-face{
+    font-family: 'montserrat';
+    src: url("../font/Montserrat-Regular.ttf");
+}
+
+body, html{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    background-color: $putih;
+}
+
+section{
+    margin-top: 150px;
+}
+
+.c{
+    &-read--wrapper{
+        cursor: pointer;        
+    }
+    &-read--wrapper:hover{
+        background-color: $merah-muda;
+        color: white;        
+    }
+    &-containerpopup{              
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background-color: $putih;        
+        opacity: 0.6;
+        transition: all .1s ease-in-out;           
+    }
+    
+}
+
+.l{
+    &-popup{
+        z-index: 999;        
+        position: absolute;          
+        width: 300px;
+        height: 425px;
+        background-color: $merah-muda;        
+        left: 50%;
+        transform: translate(-50%, -50%);
+        top: 50%;             
+        color: $putih;
+        font-size: 1em;
+        display: flex;        
+        align-items: center;
+        flex-direction: column;                
+    }
+}
+
+.o__button{       
+    min-width: 50%;
+    height: 30px;
+    background-color: #042a38;
+    border-radius: 15px;
+    padding: 0 15px 0 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $putih;
+    font-size: 0.8em;
+    cursor: pointer;
+    transition: all .1s ease-in-out;
+
+    &:hover{
+        background-color: $merah-tua;        
+    }
+}
+
+.t{
+    &--small{
+       font-size: small;
+    }
+    &--montserrat{
+        font-family: 'montserrat';
+    }
+
+}

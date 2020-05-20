@@ -1,0 +1,112 @@
+Achmad Pahlevy N. 07211840000001
+Alif Aditya Wicaksono 07211840000037
+Muhammad Alif Wicaksono 07211840000047
+Suryo Adiguna 07211840000052
+
+
+Link Video Presentasi dan Demo:
+https://youtu.be/4xk4KAREGIw
+
+
+Struktur Table item
+
+`itemId` int(11) NOT NULL,
+`itemName` varchar(100) NOT NULL,
+`itemPrice` int(11) NOT NULL,
+`itemCategory` enum('keyboard','mouse','headset') NOT NULL,
+`itemDescription` varchar(100) DEFAULT NULL,
+`itemStock` int(7) NOT NULL,
+`itemImage` varchar(50) DEFAULT NULL
+PRIMARY KEY (`itemId`)
+
+
+
+Struktur Table pengguna
+
+`userId` int(11) NOT NULL,
+`userName` varchar(70) NOT NULL,
+`userEmail` varchar(50) NOT NULL,
+`userAddress` varchar(70) NOT NULL,
+`userCity` varchar(10) NOT NULL,
+`userPassword` varchar(61) NOT NULL,
+`isAdmin` tinyint(1) DEFAULT '0',
+`isVerify` tinyint(1) DEFAULT '0',
+`verifyCode` int(5) DEFAULT NULL,
+PRIMARY KEY (`userId`)
+
+
+
+
+Struktur Table pesanan
+
+`orderId` int(11) NOT NULL,
+`userId` int(11) NOT NULL,
+`itemId` int(11) NOT NULL,
+`quantity` int(7) DEFAULT '1',
+`orderPrice` int(10) NOT NULL,
+`isDone` tinyint(1) DEFAULT '0',
+PRIMARY KEY (`orderId`),
+UNIQUE KEY `orderId` (`orderId`),
+KEY `userId` (`userId`),
+KEY `itemId` (`itemId`);
+
+
+
+
+Sturktur Table transaksi
+
+`transactionId` int(11) NOT NULL,
+`userId` int(11) NOT NULL,
+`transactionDate` date NOT NULL,
+`totalPrice` int(11) NOT NULL,
+`isApproval` tinyint(1) DEFAULT '0',
+`imgAdmin` varchar(50) DEFAULT NULL,
+`imgUser` varchar(50) DEFAULT NUL
+PRIMARY KEY (`transactionId`),
+KEY `orderId` (`userId`);
+
+
+
+Struktur Store Procedure
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `userDetail` (IN `idparam` INT(11))  NO SQL
+BEGIN
+
+SELECT userId, userName, userEmail, userAddress, userCity FROM pengguna WHERE userId = idparam;
+
+SELECT p.orderId, p.userId, p.itemId, i.itemName, p.quantity, p.orderPrice, p.isDone FROM pesanan p, item i WHERE p.userId = idparam AND i.itemId = p.itemId;
+
+SELECT t.transactionId, t.userId, p.userName, t.transactionDate, t.totalPrice, t.isApproval FROM transaksi t, pengguna p WHERE t.userId = idparam AND p.userId = t.userId;
+
+END$$
+
+DELIMITER ;
+
+
+
+
+Struktur Trigger
+
+DELIMITER $$
+CREATE TRIGGER `delete_pesanan` AFTER DELETE ON `pesanan` FOR EACH ROW UPDATE 
+item SET 
+item.itemStock = item.itemStock + OLD.quantity
+WHERE item.itemId = OLD.itemId
+$$
+DELIMITER ;
+
+
+DELIMITER $$
+CREATE TRIGGER `insert_pesanan` AFTER INSERT ON `pesanan` FOR EACH ROW UPDATE item SET item.itemStock = item.itemStock - NEW.quantity
+WHERE item.itemId = NEW.itemId
+$$
+DELIMITER ;
+
+
+DELIMITER $$
+CREATE TRIGGER `update_pesanan` AFTER UPDATE ON `pesanan` FOR EACH ROW UPDATE item 
+SET item.itemStock= item.itemStock - NEW.quantity + OLD.quantity
+WHERE item.itemId = NEW.itemId
+$$
+DELIMITER ;
+

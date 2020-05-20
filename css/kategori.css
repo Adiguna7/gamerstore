@@ -30,12 +30,27 @@ p {
   letter-spacing: 1.5px;
 }
 
+.c-nav {
+  background-color: #760933;
+}
+
+.c-nav .t3--freshscript {
+  font-size: 1.5em;
+  font-family: 'fresh-script';
+  color: #f7f5e8;
+}
+
+.c-nav .t4--argo {
+  font-family: 'argo';
+  color: #f7f5e8;
+}
+
 .kotak {
   width: 200px;
-  height: 313px;
+  height: 278px;
   border: 2px solid #b32442;
   background-color: white;
-  border-radius: 15px;
+  border-radius: 15px 15px 0 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -53,9 +68,32 @@ p {
   transition: all .2s ease-in-out;
 }
 
-.kotak:hover {
-  -webkit-transform: translateY(-4px);
-          transform: translateY(-4px);
+.beli-detail {
+  width: 200px;
+  height: 35px;
+  background-color: #b32442;
+  padding: 5px;
+  color: #f7f5e8;
+  font-family: 'argo';
+  border-radius: 0 0 15px 15px;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.transition--up {
+  -webkit-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+}
+
+.transition--up:hover {
+  -webkit-transform: translateY(-2px);
+          transform: translateY(-2px);
+}
+
+.bg--putih:hover {
+  color: #042a38;
 }
 
 #barang {
@@ -127,7 +165,6 @@ p {
   color: #f7f5e8;
   margin-bottom: 0;
   margin-left: 20px;
-  cursor: pointer;
 }
 
 #section-2 {
@@ -165,7 +202,6 @@ p {
 }
 
 #section-2 #wrapper-row-2:nth-of-type(3) #wrapper-col-2 .kotak {
-  cursor: pointer;
   margin-right: 15px;
 }
 
@@ -219,4 +255,4 @@ p {
 #section-3 #wrapper-row-1 #wrapper-col-1 p:nth-of-type(2) {
   margin-top: 35px;
 }
-/*# sourceMappingURL=styles.css.map */
+/*# sourceMappingURL=kategori.css.map */

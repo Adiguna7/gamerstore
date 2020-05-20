@@ -1,0 +1,143 @@
+// SETUP WARNA
+$birudongker: #042a38;
+$putih: #f7f5e8;
+$merah-muda: #b32442;
+$merah-tua: #760933;
+
+// SETUP FONT
+@font-face{
+    font-family: 'fresh-script';
+    src: url("../font/Fresh\ Script.otf");
+}
+@font-face{
+    font-family: 'argo';
+    src: url("../font/Argo\ Flats.ttf");
+}
+@font-face{
+    font-family: 'montserrat';
+    src: url("../font/Montserrat-Regular.ttf");
+}
+
+body, html{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    background-color: $putih;
+}
+
+section{
+    margin-top: 150px;
+}
+
+p{
+    letter-spacing: 1.5px;
+}
+
+.c-nav{
+    background-color: $merah-tua;
+    .t3--freshscript{
+        font-size: 1.5em;
+        font-family: 'fresh-script';
+        color: $putih;
+    }
+    .t4--argo{
+        font-family: 'argo';
+        color: $putih;
+    }
+}
+
+.c{
+    &-section1{
+        margin-top: 150px;
+    }
+    &-section2{
+        margin-top: 250px;
+    }
+    &-section3{
+        margin-top: 200px;
+    }
+    &-section4{
+        margin-top: 200px;
+    }
+    &-section5{
+        margin-top: 250px;
+    }
+    &__footer{
+        background-color: $merah-tua;
+        padding: 25px 0 25px 0;
+        color: $putih;
+    }    
+}
+
+.t{
+   &--freshscript{
+        font-family: 'fresh-script';
+   }
+   &--argo{
+        font-family: 'argo';
+   }
+   &--montserrat{
+    font-family: 'montserrat';
+}
+   &--line{
+       width: fit-content;
+       height: fit-content;
+       padding-left: 1.5%;
+       padding-right: 1.5%;
+       padding-bottom: 1.5%;
+       border-bottom: solid 4px $merah-muda;
+   }
+   &--small{
+       font-size: .875rem;
+   } 
+}
+
+.o__image{
+    &--shadow{
+        box-shadow: 50px 0px 0px 20px #042a38;
+    }
+    &--medium{
+        max-width: 70%;
+    }
+    &--icon{
+        max-width: 70px;
+    }
+    &--category{
+        max-width: 100px;
+        max-height: 100px;
+    }
+}
+
+.o__card{
+    width: 200px;
+    height: 200px;
+    border: solid 3px $merah-muda;
+    border-radius: 15px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: 15px 15px 2px 15px;
+}
+
+.o__button{
+    min-width: 50%;
+    height: 30px;
+    background-color: #042a38;
+    border-radius: 15px;
+    padding: 0 15px 0 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $putih;
+    font-size: 0.8em;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+
+    &:hover{
+        background-color: $merah-tua;
+        transform: scale(1.1,1.1);
+    }
+}

@@ -1,0 +1,51 @@
+// SETUP WARNA
+$birudongker: #042a38;
+$putih: #f7f5e8;
+$merah-muda: #b32442;
+$merah-tua: #760933;
+
+// SETUP FONT
+@font-face{
+    font-family: 'fresh-script';
+    src: url("../font/Fresh\ Script.otf");
+}
+@font-face{
+    font-family: 'argo';
+    src: url("../font/Argo\ Flats.ttf");
+}
+@font-face{
+    font-family: 'montserrat';
+    src: url("../font/Montserrat-Regular.ttf");
+}
+
+body, html{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    background-color: $putih;
+}
+
+.c{
+    &-udetail{
+        &-section1{
+            margin-top: 125px;            
+        }
+    }
+}
+
+.l{
+    &-thead{
+        background-color: $merah-muda;
+        color: $putih;
+    }
+}
+
+.t{
+    &--argo{
+        font-family: 'argo';
+    }
+    &--freshscript{
+        font-family: 'fresh-script';
+    }  
+}

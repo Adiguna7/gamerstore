@@ -1,0 +1,105 @@
+@font-face {
+  font-family: 'fresh-script';
+  src: url("../font/Fresh Script.otf");
+}
+
+@font-face {
+  font-family: 'argo';
+  src: url("../font/Argo Flats.ttf");
+}
+
+@font-face {
+  font-family: 'montserrat';
+  src: url("../font/Montserrat-Regular.ttf");
+}
+
+body, html {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  overflow-x: hidden;
+  background-color: #f7f5e8;
+}
+
+section {
+  margin-top: 150px;
+}
+
+.c-read--wrapper {
+  cursor: pointer;
+}
+
+.c-read--wrapper:hover {
+  background-color: #b32442;
+  color: white;
+}
+
+.c-containerpopup {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: #f7f5e8;
+  opacity: 0.6;
+  -webkit-transition: all .1s ease-in-out;
+  transition: all .1s ease-in-out;
+}
+
+.l-popup {
+  z-index: 999;
+  position: absolute;
+  width: 300px;
+  height: 425px;
+  background-color: #b32442;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  top: 50%;
+  color: #f7f5e8;
+  font-size: 1em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.o__button {
+  min-width: 50%;
+  height: 30px;
+  background-color: #042a38;
+  border-radius: 15px;
+  padding: 0 15px 0 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #f7f5e8;
+  font-size: 0.8em;
+  cursor: pointer;
+  -webkit-transition: all .1s ease-in-out;
+  transition: all .1s ease-in-out;
+}
+
+.o__button:hover {
+  background-color: #760933;
+}
+
+.t--small {
+  font-size: small;
+}
+
+.t--montserrat {
+  font-family: 'montserrat';
+}
+/*# sourceMappingURL=dashboard-admin.css.map */

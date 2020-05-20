@@ -1,0 +1,41 @@
+@font-face {
+  font-family: 'fresh-script';
+  src: url("../font/Fresh Script.otf");
+}
+
+@font-face {
+  font-family: 'argo';
+  src: url("../font/Argo Flats.ttf");
+}
+
+@font-face {
+  font-family: 'montserrat';
+  src: url("../font/Montserrat-Regular.ttf");
+}
+
+body, html {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  overflow-x: hidden;
+  background-color: #f7f5e8;
+}
+
+.c-udetail-section1 {
+  margin-top: 125px;
+}
+
+.l-thead {
+  background-color: #b32442;
+  color: #f7f5e8;
+}
+
+.t--argo {
+  font-family: 'argo';
+}
+
+.t--freshscript {
+  font-family: 'fresh-script';
+}
+/*# sourceMappingURL=admin-userdetail.css.map */
